@@ -91,6 +91,16 @@ services:
     depends_on:
       - "api"
 
+  register:
+    image: weseek/stackstorm:1.5
+    env_file: ./common.env
+    environment:
+      - "ST2_SERVICE=st2-register-content"
+    command: "--register-all"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+
   rabbitmq:
     image: rabbitmq:management
     environment:
