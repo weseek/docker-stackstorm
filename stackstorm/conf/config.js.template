@@ -2,10 +2,17 @@
 angular.module('main')
   .constant('st2Config', {
 
-    hosts: [{
-      name: 'StackStorm',
-      url: '$$api_url',
-      auth: '$$auth_url'
-    }]
+    hosts: [
+      {
+        name: 'StackStorm (localhost)',
+        url: 'http://localhost:9101',
+        auth: 'http://localhost:9100'
+      },
+      {
+        name: 'StackStorm',
+        url: '$$api_url',
+        auth: '$$auth_url'
+      }
+    ]
 
   });
