@@ -1,5 +1,8 @@
 FROM athlinks/ubuntu:14.04
 
+# replace archive.ubuntu.com to ftp.iij.ad.jp
+RUN sed -ie 's/http:\/\/archive.ubuntu.com\/ubuntu/http:\/\/ftp.iij.ad.jp\/pub\/linux\/ubuntu\/archive/g' /etc/apt/sources.list
+
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository -y ppa:nginx/stable && \
@@ -11,9 +14,9 @@ RUN apt-get update && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Can find package numbers here: https://packagecloud.io/StackStorm/staging-stable
-ENV ST2_VERSION="1.4.0-8" \
-    ST2_MISTRAL_VERSION="1.4.0-8" \
-    ST2_WEB_VERSION="1.4.0-1"
+ENV ST2_VERSION="1.5.1-4" \
+    ST2_MISTRAL_VERSION="1.5.1-5" \
+    ST2_WEB_VERSION="1.5.1-1"
 
 LABEL com.stackstorm.version="${ST2_VERSION}"
 

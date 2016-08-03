@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker build -t athlinks/stackstorm:1.4 . && \
+docker build -t weseek/stackstorm:1.5 . && \
 echo "SUCCESS!"
