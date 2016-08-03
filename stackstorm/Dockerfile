@@ -48,6 +48,9 @@ RUN rm /etc/nginx/sites-enabled/default && \
       cat /tmp/nginx.conf >> /etc/nginx/nginx.conf && \
       rm /tmp/nginx.conf
 
+# installs redis for coordination
+RUN /bin/bash -c 'source /opt/stackstorm/st2/bin/activate && pip install redis'
+
 ADD conf/htpasswd /etc/st2/htpasswd
 
 ADD conf/nginx.conf /etc/nginx/sites-enabled/st2web.conf

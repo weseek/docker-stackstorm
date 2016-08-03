@@ -11,6 +11,7 @@ services:
     depends_on:
       - "mongodb"
       - "rabbitmq"
+      - "redis"
       - "auth"
     expose:
       - "9101"
@@ -54,6 +55,7 @@ services:
     depends_on:
       - "mongodb"
       - "rabbitmq"
+      - "redis"
       - "api"
 
   results:
@@ -165,3 +167,8 @@ services:
       - "MONGODB_DATABASE=stackstorm-db"
     expose:
      - "27017"
+
+  redis:
+    image: redis:3.0-alpine
+    expose:
+     - "6379"

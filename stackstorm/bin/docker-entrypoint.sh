@@ -11,6 +11,7 @@ db_port="${ST2_DB_PORT:-27017}"
 db_name="${ST2_DB_NAME:-st2}"
 db_username="${ST2_DB_USERNAME:-None}"
 db_password="${ST2_DB_PASSWORD:-None}"
+crd_url="${ST2_COORDINATION_URL:-redis://redis:6379}"
 
 amqp_url="amqp://$rmq_user:$rmq_pass@$rmq_host:$rmq_port/"
 
@@ -23,6 +24,7 @@ generate_config_files() {
         -e "s|\$\$db_name|$db_name|" \
         -e "s|\$\$db_username|$db_username|" \
         -e "s|\$\$db_password|$db_password|" \
+        -e "s|\$\$crd_url|$crd_url|" \
         -e "s|\$\$amqp_url|$amqp_url|" > /etc/st2/st2.conf
 
   cat /tmp/config.js.template | \

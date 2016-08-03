@@ -75,3 +75,6 @@ db_name = $$db_name
 username = $$db_username
 password = $$db_password
 port = $$db_port
+
+[coordination]
+url = $$crd_url
