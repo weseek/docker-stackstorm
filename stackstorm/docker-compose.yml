@@ -3,19 +3,9 @@ services:
 
   api:
     image: weseek/stackstorm:1.5
+    env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2api"
-      - "ST2_DB_HOST=mongodb"
-      - "ST2_DB_NAME=stackstorm-db"
-      - "ST2_DB_USERNAME=stackstorm-user"
-      - "ST2_DB_PASSWORD=stackstorm-pass"
-      - "ST2_RMQ_HOST=rabbitmq"
-      - "ST2_RMQ_PORT=5672"
-      - "ST2_RMQ_USER=rmq-user"
-      - "ST2_RMQ_PASS=rmq-pass"
-      - "ST2_API_URL=http://api:9101"
-      - "ST2_AUTH_URL=http://auth:9100"
-      - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=api"
     depends_on:
@@ -29,19 +19,9 @@ services:
 
   action:
     image: weseek/stackstorm:1.5
+    env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2actionrunner"
-      - "ST2_DB_HOST=mongodb"
-      - "ST2_DB_NAME=stackstorm-db"
-      - "ST2_DB_USERNAME=stackstorm-user"
-      - "ST2_DB_PASSWORD=stackstorm-pass"
-      - "ST2_RMQ_HOST=rabbitmq"
-      - "ST2_RMQ_PORT=5672"
-      - "ST2_RMQ_USER=rmq-user"
-      - "ST2_RMQ_PASS=rmq-pass"
-      - "ST2_API_URL=http://api:9101"
-      - "ST2_AUTH_URL=http://auth:9100"
-      - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=actionrunner"
     depends_on:
@@ -51,19 +31,9 @@ services:
 
   auth:
     image: weseek/stackstorm:1.5
+    env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2auth"
-      - "ST2_DB_HOST=mongodb"
-      - "ST2_DB_NAME=stackstorm-db"
-      - "ST2_DB_USERNAME=stackstorm-user"
-      - "ST2_DB_PASSWORD=stackstorm-pass"
-      - "ST2_RMQ_HOST=rabbitmq"
-      - "ST2_RMQ_PORT=5672"
-      - "ST2_RMQ_USER=rmq-user"
-      - "ST2_RMQ_PASS=rmq-pass"
-      - "ST2_API_URL=http://api:9101"
-      - "ST2_AUTH_URL=http://auth:9100"
-      - "ST2_AUTH=True"
     labels:
       - "com.stackstorm.service.provides=auth"
     depends_on:
@@ -76,19 +46,9 @@ services:
 
   notifier:
     image: weseek/stackstorm:1.5
+    env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2notifier"
-      - "ST2_DB_HOST=mongodb"
-      - "ST2_DB_NAME=stackstorm-db"
-      - "ST2_DB_USERNAME=stackstorm-user"
-      - "ST2_DB_PASSWORD=stackstorm-pass"
-      - "ST2_RMQ_HOST=rabbitmq"
-      - "ST2_RMQ_PORT=5672"
-      - "ST2_RMQ_USER=rmq-user"
-      - "ST2_RMQ_PASS=rmq-pass"
-      - "ST2_API_URL=http://api:9101"
-      - "ST2_AUTH_URL=http://auth:9100"
-      - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=notifier"
     depends_on:
@@ -98,19 +58,9 @@ services:
 
   results:
     image: weseek/stackstorm:1.5
+    env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2resultstracker"
-      - "ST2_DB_HOST=mongodb"
-      - "ST2_DB_NAME=stackstorm-db"
-      - "ST2_DB_USERNAME=stackstorm-user"
-      - "ST2_DB_PASSWORD=stackstorm-pass"
-      - "ST2_RMQ_HOST=rabbitmq"
-      - "ST2_RMQ_PORT=5672"
-      - "ST2_RMQ_USER=rmq-user"
-      - "ST2_RMQ_PASS=rmq-pass"
-      - "ST2_API_URL=http://api:9101"
-      - "ST2_AUTH_URL=http://auth:9100"
-      - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=resultstracker"
     depends_on:
@@ -120,19 +70,9 @@ services:
 
   rules:
     image: weseek/stackstorm:1.5
+    env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2rulesengine"
-      - "ST2_DB_HOST=mongodb"
-      - "ST2_DB_NAME=stackstorm-db"
-      - "ST2_DB_USERNAME=stackstorm-user"
-      - "ST2_DB_PASSWORD=stackstorm-pass"
-      - "ST2_RMQ_HOST=rabbitmq"
-      - "ST2_RMQ_PORT=5672"
-      - "ST2_RMQ_USER=rmq-user"
-      - "ST2_RMQ_PASS=rmq-pass"
-      - "ST2_API_URL=http://api:9101"
-      - "ST2_AUTH_URL=http://auth:9100"
-      - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=rulesengine"
     depends_on:
