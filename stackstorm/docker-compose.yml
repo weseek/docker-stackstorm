@@ -80,6 +80,53 @@ services:
       - "rabbitmq"
       - "api"
 
+  sensor:
+    image: weseek/stackstorm:1.5
+    env_file: ./common.env
+    environment:
+      - "ST2_SERVICE=st2sensorcontainer"
+    labels:
+      - "com.stackstorm.service.provides=sensorcontainer"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+      - "api"
+
+  gc:
+    image: weseek/stackstorm:1.5
+    env_file: ./common.env
+    environment:
+      - "ST2_SERVICE=st2garbagecollector"
+    labels:
+      - "com.stackstorm.service.provides=garbagecollector"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+      - "api"
+
+  exporter:
+    image: weseek/stackstorm:1.5
+    env_file: ./common.env
+    environment:
+      - "ST2_SERVICE=st2exporter"
+    labels:
+      - "com.stackstorm.service.provides=exporter"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+      - "api"
+
+  stream:
+    image: weseek/stackstorm:1.5
+    env_file: ./common.env
+    environment:
+      - "ST2_SERVICE=st2stream"
+    labels:
+      - "com.stackstorm.service.provides=stream"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+
   web:
     image: weseek/stackstorm:1.5
     environment:
