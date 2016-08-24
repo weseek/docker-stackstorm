@@ -6,7 +6,7 @@ RUN sed -ie 's/http:\/\/archive.ubuntu.com\/ubuntu/http:\/\/ftp.iij.ad.jp\/pub\/
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
     add-apt-repository -y ppa:nginx/stable && \
-    curl -s https://packagecloud.io/install/repositories/StackStorm/staging-stable/script.deb.sh | bash && \
+    curl -s https://packagecloud.io/install/repositories/StackStorm/unstable/script.deb.sh | sudo bash && \
     apt-get update && \
     apt-get install -y ca-certificates nginx && \
     rm -rf /var/lib/apt/lists/* && \
@@ -14,9 +14,9 @@ RUN apt-get update && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Can find package numbers here: https://packagecloud.io/StackStorm/staging-stable
-ENV ST2_VERSION="1.5.1-4" \
-    ST2_MISTRAL_VERSION="1.5.1-5" \
-    ST2_WEB_VERSION="1.5.1-1"
+ENV ST2_VERSION="1.7dev-19" \
+    ST2_MISTRAL_VERSION="1.7dev-20" \
+    ST2_WEB_VERSION="1.7dev-2"
 
 LABEL com.stackstorm.version="${ST2_VERSION}"
 

@@ -2,7 +2,7 @@ version: '2'
 services:
 
   api:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2api"
@@ -17,9 +17,11 @@ services:
       - "9101"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   action:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2actionrunner"
@@ -31,9 +33,11 @@ services:
       - "api"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   auth:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2auth"
@@ -48,9 +52,11 @@ services:
       - "9100:9100"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   notifier:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2notifier"
@@ -63,9 +69,11 @@ services:
       - "api"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   results:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2resultstracker"
@@ -77,9 +85,11 @@ services:
       - "api"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   rules:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2rulesengine"
@@ -91,9 +101,11 @@ services:
       - "api"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   sensor:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2sensorcontainer"
@@ -105,9 +117,11 @@ services:
       - "api"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   gc:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2garbagecollector"
@@ -119,9 +133,11 @@ services:
       - "api"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   exporter:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2exporter"
@@ -133,9 +149,11 @@ services:
       - "api"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   stream:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2stream"
@@ -146,11 +164,13 @@ services:
       - "rabbitmq"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
     expose:
       - "9102"
 
   web:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     environment:
       - "ST2_SERVICE=st2web"
       - "ST2_API_URL=http://api:9101"
@@ -163,7 +183,7 @@ services:
       - "stream"
 
   register:
-    image: weseek/stackstorm:1.5
+    image: weseek/stackstorm:1.7dev
     env_file: ./common.env
     environment:
       - "ST2_SERVICE=st2-register-content"
@@ -173,6 +193,8 @@ services:
       - "rabbitmq"
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
+      - /opt/stackstorm/configs:/opt/stackstorm/configs
+      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   rabbitmq:
     image: rabbitmq:management
