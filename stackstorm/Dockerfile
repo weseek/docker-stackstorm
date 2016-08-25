@@ -14,8 +14,8 @@ RUN apt-get update && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Can find package numbers here: https://packagecloud.io/StackStorm/staging-stable
-ENV ST2_VERSION="1.7dev-19" \
-    ST2_MISTRAL_VERSION="1.7dev-20" \
+ENV ST2_VERSION="1.7dev-23" \
+    ST2_MISTRAL_VERSION="1.7dev-24" \
     ST2_WEB_VERSION="1.7dev-2"
 
 LABEL com.stackstorm.version="${ST2_VERSION}"
