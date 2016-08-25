@@ -18,7 +18,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   action:
     image: weseek/stackstorm:1.7dev
@@ -34,7 +33,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   auth:
     image: weseek/stackstorm:1.7dev
@@ -53,7 +51,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   notifier:
     image: weseek/stackstorm:1.7dev
@@ -70,7 +67,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   results:
     image: weseek/stackstorm:1.7dev
@@ -86,7 +82,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   rules:
     image: weseek/stackstorm:1.7dev
@@ -102,7 +97,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   sensor:
     image: weseek/stackstorm:1.7dev
@@ -118,7 +112,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   gc:
     image: weseek/stackstorm:1.7dev
@@ -134,7 +127,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   exporter:
     image: weseek/stackstorm:1.7dev
@@ -150,7 +142,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   stream:
     image: weseek/stackstorm:1.7dev
@@ -165,7 +156,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
     expose:
       - "9102"
 
@@ -194,7 +184,6 @@ services:
     volumes:
       - /opt/stackstorm/packs/sodb:/opt/stackstorm/packs/sodb
       - /opt/stackstorm/configs:/opt/stackstorm/configs
-      - /opt/stackstorm/virtualenvs:/opt/stackstorm/virtualenvs
 
   rabbitmq:
     image: rabbitmq:management
